@@ -3,7 +3,6 @@ package com.beadando.eloadasbeadandoui;
 import javafx.beans.property.*;
 
 public class RendelesExpanded {
-    // Original fields for database compatibility
     public String kategoriaNev;
     public int kategoriaAr;
     public String pizzaNev;
@@ -13,7 +12,6 @@ public class RendelesExpanded {
     public String felvetel;
     public String kiszallitas;
 
-    // Properties for JavaFX data binding
     private StringProperty kategoriaNevProperty = new SimpleStringProperty();
     private IntegerProperty kategoriaArProperty = new SimpleIntegerProperty();
     private StringProperty pizzaNevProperty = new SimpleStringProperty();
@@ -34,7 +32,6 @@ public class RendelesExpanded {
         this.felvetel = felvetel;
         this.kiszallitas = kiszallitas;
 
-        // Initialize properties
         this.kategoriaNevProperty.set(kategoriaNev);
         this.kategoriaArProperty.set(kategoriaAr);
         this.pizzaNevProperty.set(pizzaNev);
@@ -45,7 +42,6 @@ public class RendelesExpanded {
         this.kiszallitasProperty.set(kiszallitas);
     }
 
-    // Getters and setters for the properties
     public String getKategoriaNev() {
         return kategoriaNev;
     }

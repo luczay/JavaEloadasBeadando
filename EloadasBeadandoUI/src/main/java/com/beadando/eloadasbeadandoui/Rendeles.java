@@ -4,14 +4,12 @@ import javafx.beans.property.*;
 import java.util.Date;
 
 public class Rendeles {
-    // Original fields for database compatibility
     public int az;
     public String pizzanev;
     public int darab;
     public Date felvetel;
     public Date kiszallitas;
 
-    // JavaFX properties for data binding
     private IntegerProperty azProperty = new SimpleIntegerProperty();
     private StringProperty pizzanevProperty = new SimpleStringProperty();
     private IntegerProperty darabProperty = new SimpleIntegerProperty();
@@ -25,7 +23,6 @@ public class Rendeles {
         this.felvetel = felvetel;
         this.kiszallitas = kiszallitas;
 
-        // Initialize properties
         this.azProperty.set(az);
         this.pizzanevProperty.set(pizzanev);
         this.darabProperty.set(darab);
@@ -33,7 +30,6 @@ public class Rendeles {
         this.kiszallitasProperty.set(kiszallitas);
     }
 
-    // Getters and setters for the original fields
     public int getAz() {
         return az;
     }
@@ -79,7 +75,6 @@ public class Rendeles {
         this.kiszallitasProperty.set(kiszallitas);
     }
 
-    // Property getters for JavaFX data binding
     public IntegerProperty azProperty() {
         return azProperty;
     }

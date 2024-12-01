@@ -27,18 +27,15 @@ public class Feladat1dController {
 
     @FXML
     public void initialize() {
-        // Load Pizza names into dropdown
         loadPizzaDropdown();
 
-        // Load Kategoria names into dropdown
         loadKategoriaDropdown();
 
-        // Add listener for pizzaDropdown selection
         pizzaDropdown.setOnAction(event -> onPizzaSelected());
     }
 
     private void loadPizzaDropdown() {
-        List<String> pizzaNames = DbManager.getAllPizzaNames(); // Add this query to DbManager
+        List<String> pizzaNames = DbManager.getAllPizzaNames();
         if (pizzaNames != null && !pizzaNames.isEmpty()) {
             pizzaDropdown.setItems(FXCollections.observableArrayList(pizzaNames));
         } else {
@@ -59,7 +56,7 @@ public class Feladat1dController {
         String selectedPizzaName = pizzaDropdown.getValue();
         if (selectedPizzaName != null) {
             // Fetch pizza details from database
-            selectedPizza = DbManager.getPizzaDetails(selectedPizzaName); // Add this query to DbManager
+            selectedPizza = DbManager.getPizzaDetails(selectedPizzaName);
             if (selectedPizza != null) {
                 pizzaNevField.setText(selectedPizza.getNev());
                 kategoriaDropdown.setValue(selectedPizza.getKategorianev());
@@ -80,7 +77,6 @@ public class Feladat1dController {
         boolean newVegetarianus = vegetarianusCheckBox.isSelected();
 
         try {
-            // Update pizza in the database
             DbManager.modifyPizza(selectedPizza.getNev(), pizzaNevField.getText(), newKategoriaNev, newVegetarianus);
             System.out.println("Pizza sikeresen frissítve!");
         } catch (Exception e) {

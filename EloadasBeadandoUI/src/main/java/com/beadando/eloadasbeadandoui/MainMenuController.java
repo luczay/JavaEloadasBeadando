@@ -32,12 +32,12 @@ public class MainMenuController {
 
     @FXML
     protected void onFeladat2Click() throws IOException {
-        BeadandoUIApplication.switchScene("feladat2.fxml", "2. Feladat");
+        BeadandoUIApplication.switchScene("feladat3.fxml", "2. Feladat");
     }
 
     @FXML
     protected void onFeladat3Click() throws IOException {
-        BeadandoUIApplication.switchScene("feladat3.fxml", "3. Feladat");
+        BeadandoUIApplication.switchScene("feladat2.fxml", "3. Feladat");
     }
 
     @FXML

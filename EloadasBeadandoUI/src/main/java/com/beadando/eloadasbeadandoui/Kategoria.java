@@ -3,11 +3,9 @@ package com.beadando.eloadasbeadandoui;
 import javafx.beans.property.*;
 
 public class Kategoria {
-    // Original fields for database compatibility
     public String nev;
     public int ar;
 
-    // JavaFX properties for data binding
     private StringProperty nevProperty = new SimpleStringProperty();
     private IntegerProperty arProperty = new SimpleIntegerProperty();
 
@@ -15,12 +13,10 @@ public class Kategoria {
         this.nev = nev;
         this.ar = ar;
 
-        // Initialize properties
         this.nevProperty.set(nev);
         this.arProperty.set(ar);
     }
 
-    // Getters and setters for the original fields
     public String getNev() {
         return nev;
     }
@@ -39,7 +35,6 @@ public class Kategoria {
         this.arProperty.set(ar);
     }
 
-    // Property getters for JavaFX data binding
     public StringProperty nevProperty() {
         return nevProperty;
     }

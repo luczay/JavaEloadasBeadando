@@ -14,11 +14,9 @@
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
 
-    <!-- Pizza Selection -->
     <Label text="Pizza:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
     <ComboBox fx:id="pizzaDropdown" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
-    <!-- Buttons -->
     <Button text="Töröl" onAction="#onSubmitClick" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
     <Button text="Főmenü" onAction="#onBackToMenuClick" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 </GridPane>

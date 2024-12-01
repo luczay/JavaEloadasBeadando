@@ -14,12 +14,11 @@ public class Feladat1eController {
 
     @FXML
     public void initialize() {
-        // Load Pizza names into dropdown
         loadPizzaDropdown();
     }
 
     private void loadPizzaDropdown() {
-        List<String> pizzaNames = DbManager.getAllPizzaNames(); // Reuse this query from DbManager
+        List<String> pizzaNames = DbManager.getAllPizzaNames();
         pizzaDropdown.setItems(FXCollections.observableArrayList(pizzaNames));
     }
 
@@ -32,11 +31,10 @@ public class Feladat1eController {
         }
 
         try {
-            // Delete pizza from the database
             DbManager.deletePizza(selectedPizzaName);
             System.out.println("Pizza successfully deleted!");
-            pizzaDropdown.getItems().remove(selectedPizzaName); // Update UI
-            pizzaDropdown.setValue(null); // Clear selection
+            pizzaDropdown.getItems().remove(selectedPizzaName);
+            pizzaDropdown.setValue(null);
         } catch (Exception e) {
         }
     }
