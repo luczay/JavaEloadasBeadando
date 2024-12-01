@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/javafx"
+      fx:controller="com.beadando.eloadasbeadandoui.MainMenuController"
+      prefWidth="400.0" prefHeight="600">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    <Button text="1. Feladat - Olvas" onAction="#onFeladat1aClick"/>
+    <Button text="1. Feladat - Olvas2" onAction="#onFeladat1bClick"/>
+    <Button text="1. Feladat - Ír" onAction="#onFeladat1cClick"/>
+    <Button text="1. Feladat - Módosít" onAction="#onFeladat1dClick"/>
+    <Button text="1. Feladat - Töröl" onAction="#onFeladat1eClick"/>
+    <Button text="2. Feladat" onAction="#onFeladat2Click"/>
+    <Button text="3. Feladat" onAction="#onFeladat3Click"/>
+    <Button text="4. Feladat" onAction="#onFeladat4Click"/>
+</VBox>

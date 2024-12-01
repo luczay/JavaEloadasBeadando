@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.beadando.eloadasbeadandoui.Feladat1aController"
+      prefWidth="850.0" prefHeight="400.0">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <TableView fx:id="rendelesTable">
+        <columns>
+            <TableColumn fx:id="kategoriaNevColumn" text="Kategória Néve"/>
+            <TableColumn fx:id="kategoriaArColumn" text="Kategória Ár"/>
+            <TableColumn fx:id="pizzaNevColumn" text="Pizza Néve"/>
+            <TableColumn fx:id="vegetarianusColumn" text="Vegetáriánus"/>
+            <TableColumn fx:id="rendelesAzColumn" text="Rendelés Azonosító"/>
+            <TableColumn fx:id="darabColumn" text="Darab"/>
+            <TableColumn fx:id="felvetelColumn" text="Felvétel Idő"/>
+            <TableColumn fx:id="kiszallitasColumn" text="Kiszállítás Idő"/>
+        </columns>
+    </TableView>
+
+    <Button text="Főmenü" onAction="#onBackToMenuClick"/>
+</VBox>

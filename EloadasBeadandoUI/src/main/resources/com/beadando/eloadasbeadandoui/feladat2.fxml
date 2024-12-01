@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<VBox fx:controller="com.beadando.eloadasbeadandoui.Feladat2Controller"
+      xmlns:fx="http://javafx.com/fxml"
+      alignment="CENTER"
+      spacing="20.0">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Label that changes color every 1 second -->
+    <Label fx:id="label1" text="Label 1" style="-fx-font-size: 24px; -fx-background-color: lightgrey; -fx-padding: 10px;"/>
+
+    <!-- Label that changes color every 2 seconds -->
+    <Label fx:id="label2" text="Label 2" style="-fx-font-size: 24px; -fx-background-color: lightgrey; -fx-padding: 10px;"/>
+
+    <Button text="Főmenü" onAction="#onBackToMainMenu" />
+</VBox>
