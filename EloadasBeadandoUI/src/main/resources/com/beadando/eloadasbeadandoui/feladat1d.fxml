@@ -33,6 +33,6 @@
     <CheckBox fx:id="vegetarianusCheckBox" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
 
     <!-- Buttons -->
-    <Button text="Submit" onAction="#onSubmitClick" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-    <Button text="Back to Menu" onAction="#onBackToMenuClick" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    <Button text="Küld" onAction="#onSubmitClick" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+    <Button text="Főmenü" onAction="#onBackToMenuClick" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
 </GridPane>

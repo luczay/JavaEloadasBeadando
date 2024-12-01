@@ -29,7 +29,7 @@
     <Label text="Kategória:"/>
     <VBox fx:id="categoryRadioButtonsVBox" spacing="10"/>
 
-    <Button text="Submit" onAction="#onSubmitClick"/>
+    <Button text="Küld" onAction="#onSubmitClick"/>
 
     <Button text="Főmenü" onAction="#onBackToMainMenu" />
 </VBox>

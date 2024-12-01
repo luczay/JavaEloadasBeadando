@@ -71,7 +71,7 @@ public class Feladat1dController {
     @FXML
     protected void onSubmitClick() {
         if (selectedPizza == null) {
-            System.out.println("No pizza selected.");
+            System.out.println("Nincs kiválasztott pizza.");
             return;
         }
 
@@ -81,11 +81,11 @@ public class Feladat1dController {
 
         try {
             // Update pizza in the database
-            DbManager.modifyPizza(selectedPizza.getNev(), newKategoriaNev, newVegetarianus);
-            System.out.println("Pizza successfully updated!");
+            DbManager.modifyPizza(selectedPizza.getNev(), pizzaNevField.getText(), newKategoriaNev, newVegetarianus);
+            System.out.println("Pizza sikeresen frissítve!");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Failed to update pizza.");
+            System.out.println("Nem sikerült frissíteni a megadott pizzát!.");
         }
     }
 

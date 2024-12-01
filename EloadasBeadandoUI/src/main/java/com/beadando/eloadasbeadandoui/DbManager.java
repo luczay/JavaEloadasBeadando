@@ -3,12 +3,15 @@ package com.beadando.eloadasbeadandoui;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
 public class DbManager {
-    private static final String URL = "jdbc:sqlite:C:\\Users\\plaur\\Downloads\\Adolf\\java alkalmazasok\\BeadandoProject\\EloadasBeadando\\adatok.db";
+    private static final String URL = "jdbc:sqlite:C:\\Users\\plaur\\Downloads\\Adolf\\java alkalmazasok\\JavaEloadasBeadando\\adatok.db";
 
     private static Connection connect() throws SQLException {
         return DriverManager.getConnection(URL);
@@ -29,14 +32,19 @@ public class DbManager {
         }
     }
 
-    public static void modifyPizza(String nev, String newKategorianev, Boolean newVegetarianus) {
+    public static void modifyPizza(String nev, String newName, String newKategorianev, Boolean newVegetarianus) {
         StringBuilder queryBuilder = new StringBuilder("UPDATE pizza SET ");
         boolean hasCategory = newKategorianev != null;
         boolean hasVegetarian = newVegetarianus != null;
+        boolean hasNewName = newName != null;
 
         if (hasCategory) queryBuilder.append("kategorianev = ?");
         if (hasCategory && hasVegetarian) queryBuilder.append(", ");
         if (hasVegetarian) queryBuilder.append("vegetarianus = ?");
+        if ((hasCategory || hasVegetarian) && hasNewName) queryBuilder.append(", ");
+        if (hasVegetarian) queryBuilder.append("nev = ?");
+
+
         queryBuilder.append(" WHERE nev = ?");
 
         try (Connection conn = connect();
@@ -45,6 +53,8 @@ public class DbManager {
             int paramIndex = 1;
             if (hasCategory) pstmt.setString(paramIndex++, newKategorianev);
             if (hasVegetarian) pstmt.setBoolean(paramIndex++, newVegetarianus);
+            if (hasNewName) pstmt.setString(paramIndex++, newName);
+
             pstmt.setString(paramIndex, nev);
 
             int updatedRows = pstmt.executeUpdate();
@@ -111,15 +121,14 @@ public class DbManager {
         return categoryNames;
     }
 
-    public static List<RendelesExpanded> aggregateQuery(String pizzaName, boolean vegetarianus, String category) {
-        List<RendelesExpanded> results = new ArrayList<>();
-        String query = "SELECT * FROM rendeles r JOIN pizza p ON r.pizzanev = p.nev JOIN kategoria k ON p.kategorianev = k.nev WHERE p.nev = ? AND p.vegetarianus = ? AND k.nev = ?";
+    public static List<RendelesExpanded> aggregateQuery(String pizzaName, boolean vegetarianus, String category, String date) {
+        List<RendelesExpanded> temp_results = new ArrayList<>();
+        List<RendelesExpanded> final_results = new ArrayList<>();
+
+        String query = "SELECT * FROM rendeles r JOIN pizza p ON r.pizzanev = p.nev JOIN kategoria k ON p.kategorianev = k.nev";
 
         try (Connection conn = connect();
              PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setString(1, pizzaName);
-            stmt.setBoolean(2, vegetarianus);
-            stmt.setString(3, category);
 
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -133,12 +142,35 @@ public class DbManager {
                         rs.getString("felvetel"),
                         rs.getString("kiszallitas")
                 );
-                results.add(expanded);
+                temp_results.add(expanded);
             }
+
+            for (RendelesExpanded result : temp_results)
+            {
+                if (
+                        result.isVegetarianus() == vegetarianus
+                        && result.getPizzaNev().equals(pizzaName)
+                        && result.getKategoriaNev().equals(category)
+                ) {
+                    DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy.MM.dd");
+                    DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+                    LocalDate date1 = LocalDate.parse(result.felvetel.split(" ")[0], formatter1);
+
+                    LocalDate date2 = LocalDate.parse(date, formatter2);
+
+                    if (date1.isAfter(date2)) {
+                        final_results.add(result);
+                    }
+                }
+            }
+
         } catch (SQLException sqlException) {
 
         }
-        return results;
+
+        System.out.println(final_results.get(0).felvetel);
+        return final_results;
     }
 
     public static List<Rendeles> getRendelesAll() {
