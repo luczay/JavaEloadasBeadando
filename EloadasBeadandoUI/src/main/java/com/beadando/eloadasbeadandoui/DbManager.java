@@ -11,7 +11,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class DbManager {
-    private static final String URL = "jdbc:sqlite:C:\\Users\\plaur\\Downloads\\Adolf\\java alkalmazasok\\JavaEloadasBeadando\\adatok.db";
+    private static final String URL = "jdbc:sqlite:C:\\adatok\\adatok.db";
 
     private static Connection connect() throws SQLException {
         return DriverManager.getConnection(URL);
