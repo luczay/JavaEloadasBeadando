@@ -13,10 +13,8 @@
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
 
-    <!-- Label that changes color every 1 second -->
     <Label fx:id="label1" text="Label 1" style="-fx-font-size: 24px; -fx-background-color: lightgrey; -fx-padding: 10px;"/>
 
-    <!-- Label that changes color every 2 seconds -->
     <Label fx:id="label2" text="Label 2" style="-fx-font-size: 24px; -fx-background-color: lightgrey; -fx-padding: 10px;"/>
 
     <Button text="Főmenü" onAction="#onBackToMainMenu" />

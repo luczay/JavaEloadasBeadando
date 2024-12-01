@@ -47,13 +47,10 @@ public class Feladat1bController {
         String selectedPizza = pizzaComboBox.getValue();
         boolean vegetarianus = vegetarianCheckBox.isSelected();
 
-        // Get the selected radio button's text
         RadioButton selectedCategoryButton = (RadioButton) categoryToggleGroup.getSelectedToggle();
         String selectedCategory = (selectedCategoryButton != null) ? selectedCategoryButton.getText() : null;
 
-        // Validate inputs
         if (selectedPizza == null || selectedCategory == null) {
-            // Handle validation (e.g., show an alert)
             showAlert("Error", "Kérem töltsön ki minden mezőt!");
             return;
         }
@@ -61,9 +58,8 @@ public class Feladat1bController {
         // Query the database
         List<RendelesExpanded> result = DbManager.aggregateQuery(selectedPizza, vegetarianus, selectedCategory, dateInputField.getText());
 
-        // Pass the result to the next scene (display in another FXML)
         try {
-            Feladat1bHelperController.setResults(result); // Assuming ResultsController has a static method to set the results
+            Feladat1bHelperController.setResults(result);
             BeadandoUIApplication.switchScene("feladat1bhelper.fxml", "Eredmények");
         } catch (IOException e) {
             throw new RuntimeException(e);

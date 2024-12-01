@@ -22,7 +22,6 @@ public class Feladat1cController {
 
     @FXML
     public void initialize() {
-        // Populate the Kategoria dropdown
         loadKategoriaDropdown();
     }
 
@@ -47,7 +46,6 @@ public class Feladat1cController {
         }
 
         try {
-            // Use the createPizza function from DbManager
             DbManager.createPizza(pizzaNev, kategoriaNev, vegetarianus);
             System.out.println("Pizza successfully added!");
         } catch (Exception e) {
