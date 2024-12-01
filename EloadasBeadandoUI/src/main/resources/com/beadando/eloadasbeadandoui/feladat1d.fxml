@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane fx:controller="com.beadando.eloadasbeadandoui.Feladat1dController"
+          xmlns:fx="http://javafx.com/fxml"
+          alignment="CENTER"
+          hgap="10" vgap="10">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Pizza Selection -->
+    <Label text="Select Pizza:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <ComboBox fx:id="pizzaDropdown" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+    <!-- Pizza Name -->
+    <Label text="Pizza Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <TextField fx:id="pizzaNevField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <!-- Kategoria Dropdown -->
+    <Label text="Category:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <ComboBox fx:id="kategoriaDropdown" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <!-- Vegetarianus CheckBox -->
+    <Label text="Vegetarian:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <CheckBox fx:id="vegetarianusCheckBox" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <!-- Buttons -->
+    <Button text="Submit" onAction="#onSubmitClick" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+    <Button text="Back to Menu" onAction="#onBackToMenuClick" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+</GridPane>

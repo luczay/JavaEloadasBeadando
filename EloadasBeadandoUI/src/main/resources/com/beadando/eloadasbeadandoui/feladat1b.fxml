@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/javafx"
+      fx:controller="com.beadando.eloadasbeadandoui.Feladat1bController"
+      prefWidth="400.0" prefHeight="600">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Dátum (yyyy-MM-dd):"/>
+    <TextField fx:id="dateInputField" promptText="yyyy-MM-dd"/>
+
+    <Label text="Pizza Neve:"/>
+    <ComboBox fx:id="pizzaComboBox" />
+
+    <Label text="Vegetáriánus:"/>
+    <CheckBox fx:id="vegetarianCheckBox"/>
+
+    <Label text="Kategória:"/>
+    <VBox fx:id="categoryRadioButtonsVBox" spacing="10"/>
+
+    <Button text="Submit" onAction="#onSubmitClick"/>
+
+    <Button text="Főmenü" onAction="#onBackToMainMenu" />
+</VBox>
